@@ -1,4 +1,4 @@
-# Official Repo of Tree of Thoughts (ToT)
+# Branch Repo of Tree of Thoughts (ToT) + Wordle
 
 <p>
     <a href="https://badge.fury.io/py/tree-of-thoughts-llm">
