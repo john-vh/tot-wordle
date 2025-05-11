@@ -10,9 +10,6 @@
     <a href="https://copyright.princeton.edu/policy">
         <img alt="License" src="https://img.shields.io/badge/License-MIT-blue">
     </a>
-    <a href="https://zenodo.org/badge/latestdoi/642099326">
-        <img src="https://zenodo.org/badge/642099326.svg">
-    </a>
 </p>
 
 ![teaser](pics/teaser.png)
