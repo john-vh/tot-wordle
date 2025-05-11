@@ -1,7 +1,7 @@
-python run.py \
+python3 run.py \
     --task text \
     --task_start_index 0 \
-    --task_end_index 100 \
+    --task_end_index 20 \
     --naive_run \
     --prompt_sample standard \
     --n_generate_sample 10 \

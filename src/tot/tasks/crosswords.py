@@ -125,11 +125,11 @@ class MiniCrosswordsEnv:
         action = action.split('\n')[-1]
         action = action.split('. ')
         if len(action) != 2:
-            return 'Invalid! Format should be like "h1. apple"', 0, False, {}
+            return 'Invalid! Format should be like "h1. apple"', 0, False, {'r_letter': 0, 'r_word': 0, 'r_game': 0}
         pos, word = action
 
         if len(word) != 5:
-            return 'Invalid! Word should have 5 letters.', 0, False, {}
+            return 'Invalid! Word should have 5 letters.', 0, False, {'r_letter': 0, 'r_word': 0, 'r_game': 0}
         if pos.startswith('h'):
             idx = int(pos[1:]) - 1
             self.board[idx*5:(idx+1)*5] = list(word.upper())
@@ -138,7 +138,7 @@ class MiniCrosswordsEnv:
             self.board[idx::5] = list(word.upper())
             idx += 5  # for later status update
         else:
-            return 'Invalid! Position should be h1-h5 or v1-v5', 0, False, {}
+            return 'Invalid! Position should be h1-h5 or v1-v5', 0, False, {'r_letter': 0, 'r_word': 0, 'r_game': 0}
         
         self.new_ans = self.get_ans(self.board)
         # self.status = [2 if (status == 1 and ans != new_ans) else status for status, ans, new_ans in zip(self.status, self.ans, self.new_ans)]

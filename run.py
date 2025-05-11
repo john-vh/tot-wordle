@@ -2,8 +2,8 @@ import os
 import json
 import argparse
 
-from tot.tasks import get_task
-from tot.methods.bfs import solve, naive_solve
+from src.tot.tasks import get_task
+from src.tot.methods.bfs import solve, naive_solve
 from tot.models import gpt_usage
 
 def run(args):
@@ -24,7 +24,7 @@ def run(args):
 
         # log
         infos = [task.test_output(i, y) for y in ys]
-        info.update({'idx': i, 'ys': ys, 'infos': infos, 'usage_so_far': gpt_usage(args.backend)})
+        info.update({'idx': i, 'ys': ys, 'infos': infos, 'usage_so_far': 0})
         logs.append(info)
         with open(file, 'w') as f:
             json.dump(logs, f, indent=4)
@@ -42,10 +42,10 @@ def run(args):
 
 def parse_args():
     args = argparse.ArgumentParser()
-    args.add_argument('--backend', type=str, choices=['gpt-4', 'gpt-3.5-turbo', 'gpt-4o'], default='gpt-4')
+    args.add_argument('--backend', type=str, choices=['gpt-4.1-mini', 'gpt-4o-mini'], default='gpt-4.1-mini')
     args.add_argument('--temperature', type=float, default=0.7)
 
-    args.add_argument('--task', type=str, required=True, choices=['game24', 'text', 'crosswords'])
+    args.add_argument('--task', type=str, required=True, choices=['game24', 'text', 'crosswords', 'wordle'])
     args.add_argument('--task_start_index', type=int, default=900)
     args.add_argument('--task_end_index', type=int, default=1000)
 

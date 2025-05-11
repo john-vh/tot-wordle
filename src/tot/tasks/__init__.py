@@ -6,7 +6,10 @@ def get_task(name):
         from tot.tasks.text import TextTask
         return TextTask()
     elif name == 'crosswords':
-        from tot.tasks.crosswords import MiniCrosswordsTask
+        from src.tot.tasks.crosswords import MiniCrosswordsTask
         return MiniCrosswordsTask()
+    elif name == 'wordle':
+        from src.tot.tasks.wordle import WordleTask
+        return WordleTask()
     else:
         raise NotImplementedError
